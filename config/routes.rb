@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   get("/flexible/square/:a_number", { :controller => "calculations", :action => "flex_square"})
   get("/flexible/square_root/:a_number", { :controller => "calculations", :action => "flex_square_root"})
-  # get("/flexible/payment/:a_interest_rate/:a_years/:a_loan_amount", { :controller => "calculations", :action => "flex_payment"})
+  get("/flexible/payment/:a_interest_rate/:a_years/:a_loan_amount", { :controller => "calculations", :action => "flex_payment"})
 
   get("/square/new", { :controller => "calculations", :action => "square_form"})
   

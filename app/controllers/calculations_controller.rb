@@ -17,16 +17,16 @@ class CalculationsController < ApplicationController
     end
     
     # def flex_payment
-    #     # @user_interest_rate = params["a_interest_rate"].to_i
-    #     # @interest_rate = @user_interest_rate/10000
-    #     # @mpr = (@interest_rate/12)
+        # @user_interest_rate = params["a_interest_rate"].to_i
+        # @interest_rate = @user_interest_rate/10000
+        # @mpr = number_to_currency(@interest_rate/12)
 
-    #     # @user_number_of_years = params["a_years"].to_i
-    #     # @user_loan_amount = params["a_loan_amount"].to_i
-    #     # @monthy_payment = 
-    #     # @monthly_payment = @mpr / (1 - (1+@mpr) ** (-@payments)) * @principal
-    #     #
-    #     # number.to.currency and number.to.percentage are ways to get $ and %
+        # @user_number_of_years = params["a_years"].to_i
+        # @user_loan_amount = params["a_loan_amount"].to_i
+        # @monthy_payment = 
+        # @monthly_payment = @mpr / (1 - (1+@mpr) ** (-@payments)) * @principal
+        #
+        # number_to_currency() and number_to_percentage() are ways to get $ and %
     # end
 
     def square_form
