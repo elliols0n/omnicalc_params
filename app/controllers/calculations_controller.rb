@@ -1,4 +1,5 @@
 class CalculationsController < ApplicationController
+    # Part I
     def flex_square
       # the incoming parameters for this action look like this {"a_number"=>"5"} where the number is whatever the user types
       # rails stores that hash in a variable called params
@@ -39,6 +40,9 @@ class CalculationsController < ApplicationController
         render("calculations/flexible_random.html.erb")
     end
 
+    # Part II
+    #
+    ## Square
     def square_form
         
         render("calculations/square_form.html.erb")
@@ -51,6 +55,19 @@ class CalculationsController < ApplicationController
 
         render("calculations/square_results.html.erb")
     end
+    #
+    ## Square root
+    def square_root_form
         
+        render("calculations/square_root_form.html.erb")
+    end    
+
+    def process_square_root
+        
+        @user_number = params["the_user_number"].to_i
+        @square_root_of_number = Math.sqrt(@user_number)
+
+        render("calculations/square_root_results.html.erb")
+    end
         
 end
