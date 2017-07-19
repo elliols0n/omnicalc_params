@@ -84,7 +84,7 @@ class CalculationsController < ApplicationController
     @mpr = @apr/12
     @user_number_of_years_input = params["user_number_of_years"].to_i
     @user_principal_input = params["user_principal"].to_i
-    @monthly_payment = @mpr*@user_principal_input/(1-(1+@mpr)**(-(@user_number_of_years_input) / 12))
+    @monthly_payment = (@mpr*@user_principal_input)/(1-(1+@mpr)** (-@user_number_of_years_input * 12))
         
         render("calculations/payment_results.html.erb")
     end
@@ -102,5 +102,25 @@ class CalculationsController < ApplicationController
         
         render("calculations/random_number_results.html.erb")
     end
+    
+    # Part III
+    #
+    ## Word count
+    
+    def word_count_form
+
+       render("calculations/word_count_form.html.erb") 
+    end
+    
+    def process_word_count
+        @text = params["user_text"]
+        @special_word = params["user_word"]
+        @word_count = @text.split.count
+        @character_count_with_spaces = @text.length
+        @character_count_without_spaces = @text.gsub(/\s+/,"").size
+        @occurrences = @text.split.count(@special_word)
+
+       render("calculations/word_count_results.html.erb") 
+    end    
     
 end

@@ -7,7 +7,7 @@
         <%= @user_number_of_years_input %>
     </p>
     <p><strong>Principal</strong></br>
-        <%= @user_principal_input %>
+        <%= number_to_currency(@user_principal_input) %>
     <p><strong>Payment</strong></br>
         <%= number_to_currency(@monthly_payment) %>
     </p>
