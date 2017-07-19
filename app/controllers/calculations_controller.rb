@@ -18,13 +18,14 @@ class CalculationsController < ApplicationController
     end
     
     def flex_payment
-        @user_basis_points = params["basis_points"].to_i
+        # @user_basis_points = params["basis_points"].to_i
+        @user_basis_points = params["basis_points"].to_percentage
+
         @user_basis_to_percentage = @user_basis_points/100
         @user_number_of_years = params["number_of_years"].to_i
         @user_present_value = params["present_value"].to_i
-
-        # @mpr = (params["basis_points"])/12
-        # @monthly_payment = (@mpr * @user_present_value) / (1-(1+@mpr)**(-@user_number_of_years))
+        @mpr = (params["basis_points"])/12
+        @monthly_payment = (@mpr * @user_present_value) / (1-(1+@mpr)**(-@user_number_of_years))
         
         # @mpr / (1 - (1+@mpr) ** (-@payments)) * @user_present_value
         #
@@ -78,9 +79,9 @@ class CalculationsController < ApplicationController
     
     def process_payment
 
-    @user_apr_input = params["apr_input"].to_i
-    @user_number_of_years_input = params["number_of_years_input"].to_i
-    @user_principal_input = params["principal_input"].to_i
+    @user_apr_input = params["user_apr"].to_i
+    @user_number_of_years_input = params["user_number_of_years"].to_i
+    @user_principal_input = params["user_principal"].to_i
         
         render("calculations/payment_results.html.erb")
     end
