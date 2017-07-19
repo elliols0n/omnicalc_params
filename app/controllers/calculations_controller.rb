@@ -123,4 +123,53 @@ class CalculationsController < ApplicationController
        render("calculations/word_count_results.html.erb") 
     end    
     
+    ## Stats calculation
+    
+    def stats_calculation_form
+        @numbers = params["number_input"].gsub(',', '').split.map(&:to_f)
+        render("/calculations/stats_calculation_form.html.erb")
+    end
+    
+    def process_stats_calculation
+        @numbers = params["number_input"].gsub(',', '').split.map(&:to_f)       
+        @sorted_numbers = @numbers.sort
+        @count = @numbers.count
+        @minimum = @numbers.min
+        @maximum = @numbers.max
+        @range = @maximum - @minimum
+
+    # @median = @sorted_numbers[(@count/2)]
+
+    # @sum = @numbers.sum
+
+    # @mean = @sum / @count
+
+    # def variance
+    # 	individual_variants = [] # empty array
+    
+    # 	@numbers.each do |number|
+    # 		variant = (number - @mean) ** 2
+    # 		individual_variants.push(variant)
+    # 	end
+    # 	individual_variants.sum
+    
+    # end
+
+    # @variance = variance / @count
+
+    # @standard_deviation = Math.sqrt(@variance)
+
+    # def most_frequent
+    #   freq = @numbers.inject(Hash.new(0)) { |hash,value| hash[value] += 1; hash }
+    #   @numbers.max_by { |value| freq[value] }
+    # end 
+    
+    # @mode = most_frequent
+
+        
+        
+    #     render("/calculations/stats_calculation_form.html.erb")
+    end   
+    
+    
 end

@@ -30,6 +30,10 @@ Rails.application.routes.draw do
   get("/word_count/new", { :controller => "calculations", :action => "word_count_form"})
   get("/word_count/results", { :controller => "calculations", :action => "process_word_count"})
   
+  ## Word count form
+  get("/stats_calculation/new", { :controller => "calculations", :action => "stats_calculation_form"})
+  get("/stats_calculation/results", { :controller => "calculations", :action => "process_stats_calculation"})
+
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   mount WebGit::Engine, at: "/rails/git"
