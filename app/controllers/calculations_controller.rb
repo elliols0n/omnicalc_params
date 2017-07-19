@@ -32,16 +32,16 @@ class CalculationsController < ApplicationController
     end
     
     def flex_random
-        @user_min = params["min"]
-        @user_max = params["max"]
-        # @random_number = rand(params["min"]..params["max"])
+        @user_min = params["min"].to_i
+        @user_max = params["max"].to_i
+        @random_number = rand(@user_min..@user_max)
         
-        render("calculations/flexible_random_template.html.erb")
+        render("calculations/flexible_random.html.erb")
     end
 
     def square_form
         
-        render("calculations/square_form_template.html.erb")
+        render("calculations/square_form.html.erb")
     end
     
     def process_square
@@ -49,7 +49,7 @@ class CalculationsController < ApplicationController
         @user_number = params["the_user_number"].to_i
         @squared_number = @user_number**2
 
-        render("calculations/square_results_template.html.erb")
+        render("calculations/square_results.html.erb")
     end
         
         
