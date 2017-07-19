@@ -79,9 +79,12 @@ class CalculationsController < ApplicationController
     
     def process_payment
 
-    @user_apr_input = params["user_apr"].to_i
+    @user_apr_input = params["user_apr"].to_f
+    @apr = @user_apr_input
+    @mpr = @apr/12
     @user_number_of_years_input = params["user_number_of_years"].to_i
     @user_principal_input = params["user_principal"].to_i
+    @monthly_payment = @mpr*@user_principal_input/(1-(1+@mpr)**(-(@user_number_of_years_input) / 12))
         
         render("calculations/payment_results.html.erb")
     end
