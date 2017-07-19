@@ -56,5 +56,5 @@ Rails.application.configure do
   # # White-list problem console
   # class Application < Rails::Application
   # config.web_console.whitelisted_ips = '128.135.100.113'
-    end
+    # end
 end
