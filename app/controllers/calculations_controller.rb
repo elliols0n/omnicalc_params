@@ -137,6 +137,8 @@ class CalculationsController < ApplicationController
         @minimum = @numbers.min
         @maximum = @numbers.max
         @range = @maximum - @minimum
+        
+    # comment
 
     # @median = @sorted_numbers[(@count/2)]
 
